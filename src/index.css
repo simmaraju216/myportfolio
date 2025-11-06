@@ -1,1 +1,75 @@
 @import "tailwindcss";
+/* -------------------------
+   Custom animations & helpers
+   ------------------------- */
+
+/* prefer-reduced-motion respect */
+@media (prefers-reduced-motion: reduce) {
+  .animate-float, .animate-float-slow, .animate-blink, .animate-twinkle { animation: none !important; }
+}
+
+/* twinkle (small star) */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}
+.animate-twinkle { animation: twinkle 3s infinite ease-in-out; }
+
+/* gradient text shimmer */
+@keyframes gradient-text {
+  0% { background-position: 0% 50% }
+  50% { background-position: 100% 50% }
+  100% { background-position: 0% 50% }
+}
+.animate-gradient-text {
+  background-size: 200% 200%;
+  animation: gradient-text 6s ease infinite;
+}
+
+/* float animations */
+@keyframes float { 0% { transform: translateY(0) } 50% { transform: translateY(-12px) } 100% { transform: translateY(0) } }
+@keyframes float-slow { 0% { transform: translateY(0) } 50% { transform: translateY(-24px) } 100% { transform: translateY(0) } }
+.animate-float { animation: float 6s ease-in-out infinite; }
+.animate-float-slow { animation: float-slow 10s ease-in-out infinite; }
+
+/* subtle blink cursor used in headings */
+@keyframes blink {
+  0%, 49% { opacity: 1 } 50%, 100% { opacity: 0 }
+}
+.animate-blink { animation: blink 1s step-start infinite; }
+
+/* small helper for mobile menu transitions */
+.transition-max-h { transition: max-height 300ms ease, padding 200ms ease; }
+
+/* improve link focus visibility */
+:focus { outline: none; }
+.focus-ring:focus { box-shadow: 0 0 0 4px rgba(139,92,246,0.15); border-radius: 6px; }
+/* slow spin for the Award icon */
+@keyframes spin-slow { to { transform: rotate(360deg); } }
+.animate-spin-slow { animation: spin-slow 8s linear infinite; }
+
+/* gentle width pulse for the title underline */
+@keyframes width-pulse {
+  0%, 100% { width: 2rem; }
+  50% { width: 4rem; }
+}
+.animate-width-pulse { animation: width-pulse 2.4s ease-in-out infinite; }
+
+/* animated gradient ribbon */
+@keyframes gradient-x {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+.animate-gradient-x {
+  background-size: 200% 200%;
+  animation: gradient-x 10s ease infinite;
+}
+
+/* smooth width grow for skill bars */
+@keyframes grow {
+  from { width: 0; }
+  to { width: var(--tw-size, 100%); }
+}
+.animate-grow {
+  animation: grow 900ms ease forwards;
+}

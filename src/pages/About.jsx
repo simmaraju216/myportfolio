@@ -4,128 +4,210 @@ import "aos/dist/aos.css";
 
 export default function About() {
   useEffect(() => {
-    AOS.init({ duration: 900, once: true });
+    AOS.init({ duration: 750, once: true, offset: 80 });
   }, []);
 
+  const skills = [
+    { name: "HTML / CSS", level: 90 },
+    { name: "JavaScript (ES6+)", level: 85 },
+    { name: "React", level: 82 },
+    { name: "Node.js", level: 75 },
+    { name: "Python", level: 70 },
+    { name: "Git & GitHub", level: 78 },
+  ];
+
+  const facts = [
+    { label: "Projects", value: "10+" },
+    { label: "Certifications", value: "9" },
+    { label: "Tech Stack", value: "8+" },
+    { label: "Hackathon / Courses", value: "5+" },
+  ];
+
+  const timeline = [
+    { year: "2026", title: "B-Tech", place: "Avanthi Engineering College" },
+    { year: "2020–2022", title: "Intermediate", place: "Sri Sampath Sai Junior College" },
+    { year: "2019", title: "SSC", place: "Z.P.H. School (Budithi)" },
+  ];
+
   return (
-    <section className="relative bg-black min-h-screen px-6 py-20 overflow-hidden text-gray-200">
-      {/* Galaxy blobs */}
-      <div className="absolute w-[900px] h-[900px] bg-purple-800/40 rounded-full blur-[200px] top-[-200px] left-[-200px] -z-20"></div>
-      <div className="absolute w-[700px] h-[700px] bg-blue-800/30 rounded-full blur-[180px] bottom-[-150px] right-[-150px] -z-20"></div>
-      <div className="absolute w-[600px] h-[600px] bg-pink-700/30 rounded-full blur-[160px] top-[40%] left-[30%] -z-20"></div>
+    <section className="relative min-h-screen bg-slate-950 text-slate-100">
+      {/* ambient background */}
+      <div className="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-gradient-to-br from-indigo-600/25 via-violet-600/20 to-fuchsia-600/20 blur-3xl" />
+      <div className="pointer-events-none absolute bottom-0 right-0 h-80 w-80 rounded-full bg-gradient-to-br from-fuchsia-600/20 via-violet-600/20 to-indigo-600/20 blur-3xl" />
 
-      {/* Twinkling stars */}
-      <div className="absolute inset-0 -z-10">
-        {[...Array(50)].map((_, i) => (
+      <div className="max-w-6xl mx-auto px-6 py-20">
+        {/* Header */}
+        <header className="text-center mb-12" data-aos="fade-down">
+          <h1 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-violet-400 to-fuchsia-400">
+            About Me
+          </h1>
+          <p className="mt-3 text-slate-300 max-w-3xl mx-auto">
+            I’m <span className="text-fuchsia-300 font-medium">Simma Raju</span>, a Full-Stack Developer focused on
+            building fast, accessible, and delightful web experiences. I care about clean code, smooth UX, and
+            maintainable systems.
+          </p>
+        </header>
+
+        {/* Top grid: Profile + Summary */}
+        <div className="grid md:grid-cols-2 gap-8">
+          {/* Profile card */}
           <div
-            key={i}
-            className="absolute w-[2px] h-[2px] bg-white rounded-full animate-twinkle"
-            style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 5}s`,
-            }}
-          />
-        ))}
-      </div>
-
-      <div className="max-w-6xl mx-auto relative z-10">
-        {/* Image + About Content */}
-        <div
-          className="flex flex-col md:flex-row items-center md:items-start gap-10"
-          data-aos="fade-up"
-        >
-          {/* Profile Image */}
-          <img
-            src="/Raju.jpg"
-            alt="Profile"
-            className="w-48 h-48 md:w-64 md:h-64 object-cover rounded-xl shadow-2xl border-4 border-purple-500/50 transform transition duration-500 hover:scale-105 hover:rotate-2"
-          />
-
-          {/* About Text */}
-          <div
-            className="flex-1 bg-white/10 backdrop-blur-md p-6 rounded-lg shadow-lg border border-white/10 transition transform hover:scale-105"
-            data-aos="fade-left"
+            className="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-md"
+            data-aos="fade-up"
           >
-            <h2 className="text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 animate-gradient-text">
-              About Me
-            </h2>
-            <p className="text-gray-300 leading-relaxed">
-              I'm a passionate <span className="text-pink-400">Full Stack Developer</span> with strong skills in both front-end and back-end technologies.
-              I love building dynamic, responsive, and accessible web applications.
-              <br /><br />
-              With a Computer Science background, I’ve honed my skills in multiple programming languages and frameworks.
-              I’m always eager to learn new technologies and improve my craft.
-              <br /><br />
-              In my free time, I enjoy contributing to open-source projects and exploring new tech 🚀.
-            </p>
-          </div>
-        </div>
+            <div className="flex items-center gap-4">
+              <img
+                src="/Raju.jpg" /* keep this image in /public */
+                alt="Raju profile"
+                loading="lazy"
+                className="w-24 h-24 md:w-28 md:h-28 rounded-xl object-cover shadow-lg"
+              />
+              <div>
+                <h2 className="text-xl font-semibold text-indigo-300">Simma Raju</h2>
+                <p className="text-sm text-slate-300">Full-Stack Developer • React • Node.js</p>
+                <div className="mt-3 flex gap-2">
+                  <a
+                    href="/resume (2).pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3 py-1.5 rounded-md text-xs font-medium text-white bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 transition"
+                  >
+                    Download CV
+                  </a>
+                  <a
+                    href="/contact"
+                    className="px-3 py-1.5 rounded-md text-xs font-medium text-slate-100 bg-slate-800/70 border border-white/10 hover:bg-slate-800/90 transition"
+                  >
+                    Contact
+                  </a>
+                </div>
+              </div>
+            </div>
 
-        {/* Skills & Education */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-          {/* Skills */}
+            <p className="mt-6 text-slate-300 leading-relaxed">
+              I enjoy turning complex ideas into simple, usable interfaces. My work blends solid engineering practices
+              with thoughtful design — keeping performance, accessibility, and developer experience front and center.
+            </p>
+
+            {/* Quick facts */}
+            <ul className="mt-6 grid grid-cols-2 gap-3">
+              {facts.map((f) => (
+                <li
+                  key={f.label}
+                  className="rounded-lg bg-slate-900/60 border border-white/10 p-3 text-center"
+                >
+                  <div className="text-lg font-semibold text-fuchsia-300">{f.value}</div>
+                  <div className="text-[11px] uppercase tracking-wide text-slate-400">{f.label}</div>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* What I do / Value */}
           <div
-            className="bg-white/10 backdrop-blur-md shadow-lg rounded-lg p-6 border border-white/10 transition transform hover:scale-105"
-            data-aos="zoom-in"
+            className="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-md"
+            data-aos="fade-up"
             data-aos-delay="100"
           >
-            <h3 className="text-2xl font-bold mb-4 text-purple-300">Skills</h3>
-            <ul className="grid grid-cols-2 gap-3 text-gray-200">
-              <li>C</li>
-              <li>Python</li>
-              <li>Java</li>
-              <li>HTML & CSS</li>
-              <li>JavaScript</li>
-              <li>React</li>
-              <li>Node.js</li>
+            <h3 className="text-lg font-semibold text-indigo-300">What I Do</h3>
+            <ul className="mt-3 space-y-3 text-slate-300">
+              <li className="flex gap-2">
+                <span className="mt-[7px] h-1.5 w-1.5 rounded-full bg-fuchsia-400" />
+                Build responsive, accessible UIs in React with clean component architectures.
+              </li>
+              <li className="flex gap-2">
+                <span className="mt-[7px] h-1.5 w-1.5 rounded-full bg-fuchsia-400" />
+                Design APIs, integrate services, and ship maintainable Node.js backends.
+              </li>
+              <li className="flex gap-2">
+                <span className="mt-[7px] h-1.5 w-1.5 rounded-full bg-fuchsia-400" />
+                Optimize performance, reduce bundle size, and improve DX via tooling.
+              </li>
             </ul>
+
+            {/* Skills bars */}
+            <div className="mt-6">
+              <h4 className="text-sm font-medium text-slate-300">Core Skills</h4>
+              <div className="mt-4 space-y-4">
+                {skills.map((s, i) => (
+                  <div key={s.name}>
+                    <div className="flex justify-between text-xs text-slate-400 mb-1">
+                      <span>{s.name}</span>
+                      <span>{s.level}%</span>
+                    </div>
+                    <div className="h-2 rounded-full bg-slate-800/70 overflow-hidden">
+                      <div
+                        className="h-full rounded-full bg-gradient-to-r from-indigo-500 via-violet-500 to-fuchsia-500 animate-grow"
+                        style={{ width: `${s.level}%`, animationDelay: `${i * 100}ms` }}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* CTA row */}
+            <div className="mt-6 flex flex-wrap gap-2">
+              <a
+                href="/projects"
+                className="px-3 py-1.5 rounded-md text-xs font-medium text-white bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 transition"
+              >
+                View Projects
+              </a>
+              <a
+                href="/certifications"
+                className="px-3 py-1.5 rounded-md text-xs font-medium text-slate-100 bg-slate-800/70 border border-white/10 hover:bg-slate-800/90 transition"
+              >
+                Certifications
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Timeline + Values */}
+        <div className="mt-10 grid md:grid-cols-2 gap-8">
+          {/* Education timeline */}
+          <div
+            className="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-md"
+            data-aos="fade-up"
+          >
+            <h3 className="text-lg font-semibold text-violet-300">Education</h3>
+            <ol className="mt-4 relative border-s border-slate-700/60 pl-5">
+              {timeline.map((e, i) => (
+                <li key={e.year} className="mb-5 relative">
+                  <span className="absolute -left-[9px] mt-1.5 h-3 w-3 rounded-full bg-gradient-to-r from-indigo-500 to-fuchsia-500" />
+                  <div className="text-xs text-slate-400">{e.year}</div>
+                  <div className="text-sm font-medium text-slate-200">{e.title}</div>
+                  <div className="text-sm text-slate-400">{e.place}</div>
+                </li>
+              ))}
+            </ol>
           </div>
 
-          {/* Education */}
+          {/* Principles / How I work */}
           <div
-            className="bg-white/10 backdrop-blur-md shadow-lg rounded-lg p-6 border border-white/10 transition transform hover:scale-105"
-            data-aos="zoom-in"
-            data-aos-delay="200"
+            className="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-md"
+            data-aos="fade-up"
+            data-aos-delay="100"
           >
-            <h3 className="text-2xl font-bold mb-4 text-blue-300">Education</h3>
-            <ul className="space-y-3 text-gray-200">
-              <li>
-                <span className="font-semibold text-pink-400">2026</span> – B-Tech from Avanthi Engineering College
+            <h3 className="text-lg font-semibold text-indigo-300">How I Work</h3>
+            <ul className="mt-3 space-y-3 text-slate-300">
+              <li className="flex gap-2">
+                <span className="mt-[7px] h-1.5 w-1.5 rounded-full bg-fuchsia-400" />
+                Ship iteratively: deliver value early, refine with feedback.
               </li>
-              <li>
-                <span className="font-semibold text-pink-400">2020 - 2022</span> – Intermediate from Sri Sampath Sai Junior College
+              <li className="flex gap-2">
+                <span className="mt-[7px] h-1.5 w-1.5 rounded-full bg-fuchsia-400" />
+                Write readable code, document decisions, and automate where it helps.
               </li>
-              <li>
-                <span className="font-semibold text-pink-400">2019</span> – SSC from Z.P.H.School (Budithi)
+              <li className="flex gap-2">
+                <span className="mt-[7px] h-1.5 w-1.5 rounded-full bg-fuchsia-400" />
+                Respect accessibility, performance budgets, and UX standards.
               </li>
             </ul>
           </div>
         </div>
       </div>
-
-      {/* Animations */}
-      <style jsx>{`
-        /* Stars twinkle */
-        @keyframes twinkle {
-          0%, 100% { opacity: 0.2; }
-          50% { opacity: 1; }
-        }
-        .animate-twinkle {
-          animation: twinkle 3s infinite ease-in-out;
-        }
-
-        /* Gradient shimmer for headings */
-        @keyframes gradient-text {
-          0% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-          100% { background-position: 0% 50%; }
-        }
-        .animate-gradient-text {
-          background-size: 200% 200%;
-          animation: gradient-text 6s ease infinite;
-        }
-      `}</style>
     </section>
   );
 }
