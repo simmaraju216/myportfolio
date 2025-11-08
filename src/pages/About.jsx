@@ -26,7 +26,7 @@ export default function About() {
   const timeline = [
     { year: "2026", title: "B-Tech", place: "Avanthi Engineering College" },
     { year: "2020–2022", title: "Intermediate", place: "Sri Sampath Sai Junior College" },
-    { year: "2019", title: "SSC", place: "Z.P.H. School (Budithi)" },
+    { year: "2019-2020", title: "SSC", place: "Z.P.H. School (Budithi)" },
   ];
 
   return (

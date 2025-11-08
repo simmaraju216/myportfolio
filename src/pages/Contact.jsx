@@ -29,7 +29,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-20 px-6 bg-black text-gray-200 min-h-screen">
+    <section id="contact" className="py-20 px-6 bg-gray-900 text-gray-200 min-h-screen">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-start">
         <div>
           <h2 className="text-3xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">Contact Me</h2>
