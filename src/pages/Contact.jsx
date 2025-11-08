@@ -37,10 +37,10 @@ export default function Contact() {
           <p className="text-gray-300 mb-6"><FaPhone className="inline mr-2 text-blue-300" /> 7337301752</p>
 
           <div className="flex gap-4 text-2xl">
-            <a href="#" aria-label="Facebook" className="text-gray-400 hover:text-blue-500"> <FaFacebook/> </a>
-            <a href="#" aria-label="Instagram" className="text-gray-400 hover:text-pink-500"> <FaInstagram/> </a>
-            <a href="#" aria-label="LinkedIn" className="text-gray-400 hover:text-blue-400"> <FaLinkedin/> </a>
-            <a href="#" aria-label="GitHub" className="text-gray-400 hover:text-white"> <FaGithub/> </a>
+            <a href="https://www.facebook.com/profile.php?id=100072872655855" aria-label="Facebook" className="text-gray-400 hover:text-blue-500"> <FaFacebook/> </a>
+            <a href="https://www.instagram.com/selfish_boy____007/" aria-label="Instagram" className="text-gray-400 hover:text-pink-500"> <FaInstagram/> </a>
+            <a href="https://www.linkedin.com/in/simma-raju-827aa6377/" aria-label="LinkedIn" className="text-gray-400 hover:text-blue-400"> <FaLinkedin/> </a>
+            <a href="https://github.com/simmaraju216" aria-label="GitHub" className="text-gray-400 hover:text-white"> <FaGithub/> </a>
           </div>
         </div>
 
