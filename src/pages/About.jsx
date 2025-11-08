@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -31,7 +32,7 @@ export default function About() {
 
   return (
     <section className="relative min-h-screen bg-slate-950 text-slate-100">
-      {/* ambient background */}
+      {/* Background */}
       <div className="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-gradient-to-br from-indigo-600/25 via-violet-600/20 to-fuchsia-600/20 blur-3xl" />
       <div className="pointer-events-none absolute bottom-0 right-0 h-80 w-80 rounded-full bg-gradient-to-br from-fuchsia-600/20 via-violet-600/20 to-indigo-600/20 blur-3xl" />
 
@@ -48,16 +49,12 @@ export default function About() {
           </p>
         </header>
 
-        {/* Top grid: Profile + Summary */}
         <div className="grid md:grid-cols-2 gap-8">
-          {/* Profile card */}
-          <div
-            className="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-md"
-            data-aos="fade-up"
-          >
+          {/* Profile Card */}
+          <div className="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-md" data-aos="fade-up">
             <div className="flex items-center gap-4">
               <img
-                src="/Raju.jpg" /* keep this image in /public */
+                src="/Raju.jpg"
                 alt="Raju profile"
                 loading="lazy"
                 className="w-24 h-24 md:w-28 md:h-28 rounded-xl object-cover shadow-lg"
@@ -74,12 +71,12 @@ export default function About() {
                   >
                     Download CV
                   </a>
-                  <a
-                    href="/contact"
+                  <Link
+                    to="/contact"
                     className="px-3 py-1.5 rounded-md text-xs font-medium text-slate-100 bg-slate-800/70 border border-white/10 hover:bg-slate-800/90 transition"
                   >
                     Contact
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -89,13 +86,9 @@ export default function About() {
               with thoughtful design — keeping performance, accessibility, and developer experience front and center.
             </p>
 
-            {/* Quick facts */}
             <ul className="mt-6 grid grid-cols-2 gap-3">
               {facts.map((f) => (
-                <li
-                  key={f.label}
-                  className="rounded-lg bg-slate-900/60 border border-white/10 p-3 text-center"
-                >
+                <li key={f.label} className="rounded-lg bg-slate-900/60 border border-white/10 p-3 text-center">
                   <div className="text-lg font-semibold text-fuchsia-300">{f.value}</div>
                   <div className="text-[11px] uppercase tracking-wide text-slate-400">{f.label}</div>
                 </li>
@@ -103,7 +96,7 @@ export default function About() {
             </ul>
           </div>
 
-          {/* What I do / Value */}
+          {/* What I Do */}
           <div
             className="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-md"
             data-aos="fade-up"
@@ -125,7 +118,6 @@ export default function About() {
               </li>
             </ul>
 
-            {/* Skills bars */}
             <div className="mt-6">
               <h4 className="text-sm font-medium text-slate-300">Core Skills</h4>
               <div className="mt-4 space-y-4">
@@ -146,34 +138,28 @@ export default function About() {
               </div>
             </div>
 
-            {/* CTA row */}
             <div className="mt-6 flex flex-wrap gap-2">
-              <a
-                href="/projects"
+              <Link
+                to="/projects"
                 className="px-3 py-1.5 rounded-md text-xs font-medium text-white bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 transition"
               >
                 View Projects
-              </a>
-              <a
-                href="/certifications"
+              </Link>
+              <Link
+                to="/certifications"
                 className="px-3 py-1.5 rounded-md text-xs font-medium text-slate-100 bg-slate-800/70 border border-white/10 hover:bg-slate-800/90 transition"
               >
                 Certifications
-              </a>
+              </Link>
             </div>
           </div>
         </div>
 
-        {/* Timeline + Values */}
         <div className="mt-10 grid md:grid-cols-2 gap-8">
-          {/* Education timeline */}
-          <div
-            className="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-md"
-            data-aos="fade-up"
-          >
+          <div className="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-md" data-aos="fade-up">
             <h3 className="text-lg font-semibold text-violet-300">Education</h3>
             <ol className="mt-4 relative border-s border-slate-700/60 pl-5">
-              {timeline.map((e, i) => (
+              {timeline.map((e) => (
                 <li key={e.year} className="mb-5 relative">
                   <span className="absolute -left-[9px] mt-1.5 h-3 w-3 rounded-full bg-gradient-to-r from-indigo-500 to-fuchsia-500" />
                   <div className="text-xs text-slate-400">{e.year}</div>
@@ -184,7 +170,6 @@ export default function About() {
             </ol>
           </div>
 
-          {/* Principles / How I work */}
           <div
             className="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-md"
             data-aos="fade-up"
